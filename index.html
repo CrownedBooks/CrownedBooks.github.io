@@ -8,181 +8,205 @@
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: linear-gradient(to bottom, #070a14, #141a33);
-      color: #f5f1e8;
+      font-family: 'Georgia', serif;
+      color: #f3ead7;
       overflow-x: hidden;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 60%),
+        linear-gradient(to bottom, #1a120d, #0d0a08);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 2px,
+        transparent 2px,
+        transparent 6px
+      );
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
     }
 
     header {
       text-align: center;
-      padding: 90px 20px 40px;
+      padding: 110px 20px 60px;
       position: relative;
     }
 
-    .crown {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 10px;
+    .crown-svg {
+      width: 60px;
+      margin: 0 auto 10px;
+      opacity: 0.9;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       letter-spacing: 2px;
       margin: 0;
     }
 
     .subtitle {
       margin-top: 10px;
-      opacity: 0.8;
       font-style: italic;
+      opacity: 0.75;
+    }
+
+    .artifact-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .artifact {
+      width: 120px;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 8px rgba(0,0,0,0.6));
     }
 
     nav {
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
-    .btn {
+    .door {
       display: inline-block;
       margin: 10px;
-      padding: 12px 18px;
-      border: 1px solid rgba(255,255,255,0.3);
+      padding: 14px 20px;
+      border: 1px solid rgba(255,255,255,0.25);
       border-radius: 10px;
       text-decoration: none;
-      color: #f5f1e8;
+      color: #f3ead7;
+      background: rgba(255,255,255,0.04);
       transition: 0.3s;
-      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
     }
 
-    .btn:hover {
-      background: rgba(255,255,255,0.15);
+    .door:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
     }
 
     section {
       max-width: 900px;
-      margin: 80px auto;
+      margin: 90px auto;
       padding: 0 20px;
     }
 
     .card {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       padding: 20px;
       border-radius: 12px;
       margin-top: 20px;
     }
 
-    .hero-images {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-
-    .hero-images img {
-      width: 220px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.2);
-      opacity: 0.9;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
-
     footer {
       text-align: center;
-      opacity: 0.6;
+      opacity: 0.5;
       padding: 40px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
 
-<canvas id="stars"></canvas>
+<canvas id="dust"></canvas>
 
 <header>
-  <div class="crown">👑</div>
+
+  <svg class="crown-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M3 17l3-9 4 5 4-5 4 5 3-9v14H3z"/>
+  </svg>
+
   <h1>WELCOME TO CROWNED BOOKS</h1>
-  <div class="subtitle">Where stories are forged like steel and whispered like prophecy</div>
+  <div class="subtitle">A royal archive where stories are kept like relics</div>
 
   <nav>
-    <a class="btn" href="#worlds">Worlds</a>
-    <a class="btn" href="#writers">Writers</a>
-    <a class="btn" href="#archives">Archives</a>
+    <a class="door" href="#maps">Maps</a>
+    <a class="door" href="#worlds">Worlds</a>
+    <a class="door" href="#characters">Characters</a>
   </nav>
 
-  <div class="hero-images">
-    <img src="https://images.unsplash.com/photo-1520975922284-9c4c9f1f7f6c" alt="Sword" />
-    <img src="https://images.unsplash.com/photo-1602524814443-8b3f0b2b0d9d" alt="Crown" />
+  <div class="artifact-row">
+
+    <svg class="artifact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M14 3l7 7-10 10-5 1 1-5 10-10z"/>
+    </svg>
+
+    <svg class="artifact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M3 17l3-9 4 5 4-5 4 5 3-9v14H3z"/>
+    </svg>
+
   </div>
+
 </header>
+
+<section id="maps">
+  <h2>Maps</h2>
+  <div class="card">Folded worlds of ink and ink-stained geography, marking where legends once walked.</div>
+</section>
 
 <section id="worlds">
   <h2>Worlds</h2>
-  <div class="card">Lands stitched from ink and imagination. Some are gentle. Some are not.</div>
+  <div class="card">Realms bound in ink, sealed in parchment, and archived like forbidden maps.</div>
 </section>
 
-<section id="writers">
-  <h2>Writers</h2>
-  <div class="card">Those who build kingdoms out of sentences and occasionally ruin them for character development.</div>
-</section>
-
-<section id="archives">
-  <h2>Archives</h2>
-  <div class="card">Lost stories, forgotten kingdoms, and things that probably should not be read out loud.</div>
+<section id="characters">
+  <h2>Characters</h2>
+  <div class="card">Lives written into existence, some remembered, some lost between pages.</div>
 </section>
 
 <footer>
-  Built in quiet defiance of boring websites.
+  A library built from memory, ink, and stubborn imagination.
 </footer>
 
 <script>
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById('dust');
+const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let stars = Array.from({ length: 120 }, () => ({
+let particles = Array.from({length: 140}, () => ({
   x: Math.random() * canvas.width,
   y: Math.random() * canvas.height,
-  r: Math.random() * 1.5 + 0.5,
-  d: Math.random() * 1
+  r: Math.random() * 1.3,
+  s: Math.random() * 0.6 + 0.2
 }));
 
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
 
-  stars.forEach(s => {
+  particles.forEach(p => {
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, false);
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
     ctx.fill();
   });
 
-  moveStars();
-}
-
-function moveStars() {
-  stars.forEach(s => {
-    s.y += s.d + 0.3;
-    if (s.y > canvas.height) {
-      s.y = 0;
-      s.x = Math.random() * canvas.width;
+  particles.forEach(p => {
+    p.y += p.s;
+    if (p.y > canvas.height) {
+      p.y = 0;
+      p.x = Math.random() * canvas.width;
     }
   });
+
+  requestAnimationFrame(draw);
 }
 
-function animate() {
-  drawStars();
-  requestAnimationFrame(animate);
-}
-
-animate();
+draw();
 </script>
 
 </body>
