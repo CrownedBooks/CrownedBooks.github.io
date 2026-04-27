@@ -1,100 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kailah's World</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crowned Books</title>
+
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: linear-gradient(to bottom, #1a1f2b, #2e3b4e);
-      color: #f5f1e6;
-      text-align: center;
+      font-family: Georgia, serif;
+      background: linear-gradient(to bottom, #070a14, #141a33);
+      color: #f5f1e8;
+      overflow-x: hidden;
     }
 
     header {
-      padding: 60px 20px;
-      background: rgba(0,0,0,0.4);
-      border-bottom: 2px solid #d6c28a;
+      text-align: center;
+      padding: 90px 20px 40px;
+      position: relative;
+    }
+
+    .crown {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 3em;
-      margin: 0;
+      font-size: 3rem;
       letter-spacing: 2px;
+      margin: 0;
     }
 
     .subtitle {
-      font-style: italic;
-      color: #d6c28a;
       margin-top: 10px;
+      opacity: 0.8;
+      font-style: italic;
     }
 
-    .portal {
-      margin: 60px auto;
-      padding: 40px;
-      width: 80%;
-      max-width: 600px;
-      border: 2px solid #d6c28a;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 20px rgba(214,194,138,0.3);
-    }
-
-    .portal p {
-      font-size: 1.2em;
-      line-height: 1.6;
-    }
-
-    .enter-btn {
+    nav {
       margin-top: 30px;
-      display: inline-block;
-      padding: 12px 25px;
-      font-size: 1em;
-      color: #1a1f2b;
-      background: #d6c28a;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
     }
 
-    .enter-btn:hover {
-      background: #f0e3b2;
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      text-decoration: none;
+      color: #f5f1e8;
+      transition: 0.3s;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-images img {
+      width: 220px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      opacity: 0.9;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
 
     footer {
-      margin-top: 80px;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #aaa;
+      text-align: center;
+      opacity: 0.6;
+      padding: 40px;
     }
   </style>
 </head>
 
 <body>
 
+<canvas id="stars"></canvas>
+
 <header>
-  <h1>The World of Arian</h1>
-  <div class="subtitle">Where stories breathe and destinies awaken</div>
+  <div class="crown">👑</div>
+  <h1>WELCOME TO CROWNED BOOKS</h1>
+  <div class="subtitle">Where stories are forged like steel and whispered like prophecy</div>
+
+  <nav>
+    <a class="btn" href="#worlds">Worlds</a>
+    <a class="btn" href="#writers">Writers</a>
+    <a class="btn" href="#archives">Archives</a>
+  </nav>
+
+  <div class="hero-images">
+    <img src="https://images.unsplash.com/photo-1520975922284-9c4c9f1f7f6c" alt="Sword" />
+    <img src="https://images.unsplash.com/photo-1602524814443-8b3f0b2b0d9d" alt="Crown" />
+  </div>
 </header>
 
-<div class="portal">
-  <p>
-    Beyond the quiet corners of your world lies a place untouched by time...
-    Arian.
-  </p>
-  <p>
-    A land of whispered prophecies, hidden paths, and souls bound by fate.
-    Step forward, if you dare, and discover what waits beyond the veil.
-  </p>
+<section id="worlds">
+  <h2>Worlds</h2>
+  <div class="card">Lands stitched from ink and imagination. Some are gentle. Some are not.</div>
+</section>
 
-  <a class="enter-btn" href="#">Enter the World</a>
-</div>
+<section id="writers">
+  <h2>Writers</h2>
+  <div class="card">Those who build kingdoms out of sentences and occasionally ruin them for character development.</div>
+</section>
+
+<section id="archives">
+  <h2>Archives</h2>
+  <div class="card">Lost stories, forgotten kingdoms, and things that probably should not be read out loud.</div>
+</section>
 
 <footer>
-  Created by Kailah ✧ Keeper of Stories
+  Built in quiet defiance of boring websites.
 </footer>
+
+<script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = Array.from({ length: 120 }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 1.5 + 0.5,
+  d: Math.random() * 1
+}));
+
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+
+  stars.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, false);
+    ctx.fill();
+  });
+
+  moveStars();
+}
+
+function moveStars() {
+  stars.forEach(s => {
+    s.y += s.d + 0.3;
+    if (s.y > canvas.height) {
+      s.y = 0;
+      s.x = Math.random() * canvas.width;
+    }
+  });
+}
+
+function animate() {
+  drawStars();
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 
 </body>
 </html>
