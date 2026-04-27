@@ -1,82 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>World Maps</title>
+<meta charset="UTF-8">
+<title>World Maps</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #0e0b0a;
-      color: #f5f1e8;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
+<style>
+  body {
+    margin: 0;
+    background: #0e0b0a;
+    color: #f5f1e8;
+    font-family: Georgia, serif;
+    text-align: center;
+  }
 
-    h1 {
-      margin-top: 30px;
-      letter-spacing: 3px;
-    }
+  h1 {
+    margin-top: 25px;
+    letter-spacing: 3px;
+  }
 
-    img {
-      width: 85%;
-      max-width: 1000px;
-      border: 3px solid #3a2a22;
-      border-radius: 12px;
-    }
-  </style>
+  .map-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  .map-wrapper img {
+    width: 85%;
+    max-width: 1000px;
+    border: 3px solid #3a2a22;
+    border-radius: 12px;
+    display: block;
+  }
+
+  /* Base hotspot style */
+  .region {
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 10px;
+  }
+
+  /* Hover glow effect */
+  .region:hover {
+    box-shadow: 0 0 25px rgba(212,180,106,0.8);
+    transform: scale(1.05);
+  }
+
+  /* Labels */
+  .label {
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    transition: 0.2s ease;
+    pointer-events: none;
+  }
+
+  .region:hover .label {
+    opacity: 1;
+  }
+
+  /* ===== REGION POSITIONS (YOU WILL ADJUST THESE) ===== */
+
+  .arian {
+    top: 15%;
+    left: 10%;
+    width: 18%;
+    height: 20%;
+  }
+
+  .calvarra {
+    top: 15%;
+    left: 32%;
+    width: 18%;
+    height: 20%;
+  }
+
+  .ellik {
+    top: 20%;
+    left: 58%;
+    width: 15%;
+    height: 18%;
+  }
+
+  .preyland {
+    top: 55%;
+    left: 12%;
+    width: 20%;
+    height: 22%;
+  }
+
+  .kinswell {
+    top: 55%;
+    left: 38%;
+    width: 20%;
+    height: 22%;
+  }
+
+  .stoneforge {
+    top: 55%;
+    left: 65%;
+    width: 15%;
+    height: 20%;
+  }
+
+  .corrial {
+    top: 25%;
+    left: 75%;
+    width: 15%;
+    height: 18%;
+  }
+
+</style>
 </head>
 
 <body>
 
 <h1>WORLD MAP</h1>
 
-<img src="map.jpg" usemap="#worldmap">
+<div class="map-wrapper">
 
-<map name="worldmap">
+  <img src="map.jpg" alt="World Map">
 
   <!-- ARIAN -->
-  <area shape="rect"
-        coords="100,120,250,260"
-        href="map-arian.html"
-        alt="Map of Arian">
+  <a href="map-arian.html" class="region arian">
+    <div class="label">Arian</div>
+  </a>
 
   <!-- CALVARRA -->
-  <area shape="rect"
-        coords="300,120,450,260"
-        href="map-calvarra.html"
-        alt="Map of Calvarra">
+  <a href="map-calvarra.html" class="region calvarra">
+    <div class="label">Calvarra</div>
+  </a>
 
   <!-- ELLIK -->
-  <area shape="circle"
-        coords="600,180,70"
-        href="map-ellik.html"
-        alt="Map of Ellik">
+  <a href="map-ellik.html" class="region ellik">
+    <div class="label">Ellik</div>
+  </a>
 
   <!-- PREYLAND -->
-  <area shape="poly"
-        coords="150,350,220,320,280,400,200,450"
-        href="map-preyland.html"
-        alt="Map of Preyland">
+  <a href="map-preyland.html" class="region preyland">
+    <div class="label">Preyland</div>
+  </a>
 
   <!-- KINSWELL -->
-  <area shape="rect"
-        coords="500,320,650,450"
-        href="map-kinswell.html"
-        alt="Map of Kinswell">
+  <a href="map-kinswell.html" class="region kinswell">
+    <div class="label">Kinswell</div>
+  </a>
 
   <!-- STONEFORGE -->
-  <area shape="circle"
-        coords="750,350,60"
-        href="map-stoneforge.html"
-        alt="Map of Stoneforge">
+  <a href="map-stoneforge.html" class="region stoneforge">
+    <div class="label">Stoneforge</div>
+  </a>
 
   <!-- CORRIAL -->
-  <area shape="poly"
-        coords="700,120,820,150,780,240,690,210"
-        href="map-corrial.html"
-        alt="Map of Corrial">
+  <a href="map-corrial.html" class="region corrial">
+    <div class="label">Corrial</div>
+  </a>
 
-</map>
+</div>
 
 </body>
 </html>
