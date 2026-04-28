@@ -14,6 +14,11 @@
     box-sizing: border-box;
 }
 
+/* 🚫 KILL SIDE SCROLL */
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: "EB Garamond", serif;
     color: #f3e7d3;
@@ -30,14 +35,12 @@ body {
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding: 20px;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.24);
-    backdrop-filter: blur(2px);
 }
 
 .hero-content {
@@ -57,7 +60,6 @@ body {
     letter-spacing: 8px;
     margin-top: 10px;
     color: #f5d38a;
-    text-shadow: 0 0 20px rgba(255, 210, 120, 0.3);
 }
 
 /* BUTTONS */
@@ -66,7 +68,6 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .nav-buttons a {
@@ -76,52 +77,45 @@ body {
     color: #f5e6c8;
     font-family: "Cinzel", serif;
     letter-spacing: 2px;
-    transition: 0.3s ease;
     background: rgba(0,0,0,0.4);
 }
 
-.nav-buttons a:hover {
-    background: #d4b46a;
-    color: #1a1207;
-    transform: translateY(-2px);
-}
-
-/* ✨ LIGHT SEAM */
+/* ✨ LIGHT SEAM (FIXED, NO OVERFLOW) */
 .light-seam {
     position: absolute;
-    bottom: -50px;
+    bottom: -80px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120%;
-    height: 180px;
-    background: url("light-swish.png") center/contain no-repeat;
+    width: 100vw; /* 👈 viewport width instead of oversized % */
+    height: 220px;
+    background: url("light-swish.png") center no-repeat;
+    background-size: cover; /* 👈 fills width cleanly */
     pointer-events: none;
     z-index: 3;
     opacity: 0.95;
 
-    animation: seamFlow 6s ease-in-out infinite;
+    animation: seamFlow 7s ease-in-out infinite;
 }
 
-/* soft glow */
+/* glow */
 .light-seam::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(255,210,120,0.25), transparent 70%);
-    filter: blur(30px);
-    opacity: 0.6;
+    background: radial-gradient(circle, rgba(255,210,120,0.3), transparent 70%);
+    filter: blur(40px);
 }
 
-/* subtle movement */
+/* motion */
 @keyframes seamFlow {
     0% {
-        transform: translateX(-50%) translateY(0) scale(1);
+        transform: translateX(-50%) translateY(0) scaleX(1);
     }
     50% {
-        transform: translateX(-50%) translateY(10px) scale(1.03);
+        transform: translateX(-50%) translateY(12px) scaleX(1.05);
     }
     100% {
-        transform: translateX(-50%) translateY(0) scale(1);
+        transform: translateX(-50%) translateY(0) scaleX(1);
     }
 }
 
@@ -139,12 +133,7 @@ body {
 .second-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(10,8,6,0.8) 0%,
-        rgba(10,8,6,0.4) 40%,
-        rgba(10,8,6,0.7) 100%
-    );
+    background: rgba(0,0,0,0.5);
 }
 
 /* TEXT */
@@ -152,20 +141,12 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    margin-bottom: 40px;
 }
 
 .section-intro {
     font-family: "Cinzel Decorative", serif;
     font-size: 52px;
-    letter-spacing: 6px;
     color: #f5d38a;
-}
-
-.section-sub {
-    margin-top: 10px;
-    font-size: 20px;
-    opacity: 0.85;
 }
 
 /* DOORS */
@@ -192,39 +173,22 @@ body {
 
 .door span {
     font-family: "Cinzel Decorative", serif;
-    font-size: 30px;
-    letter-spacing: 4px;
+    font-size: 28px;
     color: #f5d38a;
-    text-shadow:
-        0 0 10px rgba(255, 210, 120, 0.4),
-        0 0 25px rgba(255, 210, 120, 0.2);
-    transition: all 0.3s ease;
-}
-
-.door:hover span {
-    transform: scale(1.12);
-    text-shadow:
-        0 0 15px rgba(255, 210, 120, 0.8),
-        0 0 40px rgba(255, 210, 120, 0.6);
 }
 
 /* QUOTE */
 .writer-quote {
-    position: relative;
-    z-index: 2;
     text-align: center;
     margin-top: 40px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    opacity: 0.7;
     font-style: italic;
+    opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
     <div class="overlay"></div>
 
@@ -239,17 +203,14 @@ body {
         </div>
     </div>
 
-    <!-- ✨ LIGHT SEAM -->
     <div class="light-seam"></div>
 </div>
 
-<!-- SECOND SECTION -->
 <div class="second-section">
     <div class="second-overlay"></div>
 
     <div class="second-content">
         <div class="section-intro">Choose Your Path</div>
-        <div class="section-sub">Not every story is meant to be found easily.</div>
     </div>
 
     <div class="doors-container">
