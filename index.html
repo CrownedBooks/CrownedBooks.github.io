@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Crowned Books</title>
-  
-    <link rel="icon" href="favicon.png" type="image/png">
+<title>Crowned Books</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png" type="image/png">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,18 +16,17 @@
     box-sizing: border-box;
 }
 
-/* 🚫 KILL SIDE SCROLL */
 html, body {
     overflow-x: hidden;
 }
 
 body {
     font-family: "EB Garamond", serif;
-    color: #f3e7d3;
     background: #0b0a08;
+    color: #f3e7d3;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
     height: 100vh;
     background: url("library.jpg.png") center/cover no-repeat;
@@ -42,7 +41,7 @@ body {
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.24);
+    background: rgba(0,0,0,0.25);
 }
 
 .hero-content {
@@ -64,7 +63,7 @@ body {
     color: #f5d38a;
 }
 
-/* BUTTONS */
+/* HERO BUTTONS */
 .nav-buttons {
     margin-top: 40px;
     display: flex;
@@ -80,45 +79,14 @@ body {
     font-family: "Cinzel", serif;
     letter-spacing: 2px;
     background: rgba(0,0,0,0.4);
+    transition: 0.3s ease;
 }
 
-/* ✨ LIGHT SEAM (FIXED, NO OVERFLOW) */
-.light-seam {
-    position: absolute;
-    bottom: -80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw; /* 👈 viewport width instead of oversized % */
-    height: 220px;
-    background: url("light-swish.png") center no-repeat;
-    background-size: cover; /* 👈 fills width cleanly */
-    pointer-events: none;
-    z-index: 3;
-    opacity: 0.95;
-
-    animation: seamFlow 7s ease-in-out infinite;
-}
-
-/* glow */
-.light-seam::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(255,210,120,0.3), transparent 70%);
-    filter: blur(40px);
-}
-
-/* motion */
-@keyframes seamFlow {
-    0% {
-        transform: translateX(-50%) translateY(0) scaleX(1);
-    }
-    50% {
-        transform: translateX(-50%) translateY(12px) scaleX(1.05);
-    }
-    100% {
-        transform: translateX(-50%) translateY(0) scaleX(1);
-    }
+.nav-buttons a:hover {
+    background: rgba(245, 211, 138, 0.18);
+    color: #ffd77a;
+    border-color: #ffd77a;
+    transform: translateY(-2px);
 }
 
 /* SECOND SECTION */
@@ -131,14 +99,12 @@ body {
     justify-content: center;
 }
 
-/* OVERLAY */
 .second-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.55);
 }
 
-/* TEXT */
 .second-content {
     position: relative;
     z-index: 2;
@@ -169,14 +135,36 @@ body {
     text-decoration: none;
 }
 
+/* soft glow layer */
+.door::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 210, 140, 0.12), transparent 70%);
+    opacity: 0.7;
+    transition: 0.3s ease;
+}
+
+.door:hover::before {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
 .door-left { left: 0; }
 .door-center { left: 33.33%; }
 .door-right { left: 66.66%; }
 
 .door span {
+    position: relative;
+    z-index: 2;
     font-family: "Cinzel Decorative", serif;
     font-size: 28px;
     color: #f5d38a;
+    transition: 0.3s ease;
+}
+
+.door:hover span {
+    color: #ffe7a8;
 }
 
 /* QUOTE */
@@ -204,8 +192,6 @@ body {
             <a href="books.html">BOOKS</a>
         </div>
     </div>
-
-    <div class="light-seam"></div>
 </div>
 
 <div class="second-section">
