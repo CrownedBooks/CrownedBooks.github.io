@@ -20,7 +20,7 @@ body {
     background: #0b0a08;
 }
 
-/* HERO (TOP) */
+/* HERO */
 .hero {
     height: 100vh;
     background: url("library.jpg.png") center/cover no-repeat;
@@ -84,6 +84,46 @@ body {
     background: #d4b46a;
     color: #1a1207;
     transform: translateY(-2px);
+}
+
+/* MAGIC DIVIDER */
+.magic-divider {
+    position: relative;
+    height: 140px;
+    overflow: hidden;
+}
+
+/* SWIRLS */
+.swirl {
+    position: absolute;
+    width: 220%;
+    height: 220%;
+    top: -60%;
+    left: -60%;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.6;
+    transition: transform 0.2s linear;
+}
+
+.swirl-gold {
+    background: radial-gradient(circle, rgba(255,210,120,0.25), transparent 60%);
+}
+
+.swirl-silver {
+    background: radial-gradient(circle, rgba(200,200,220,0.18), transparent 60%);
+    mix-blend-mode: screen;
+}
+
+/* DUST */
+.dust {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1px);
+    background-size: 35px 35px;
+    opacity: 0.25;
+    transition: transform 0.3s linear;
 }
 
 /* SECOND SECTION */
@@ -176,6 +216,18 @@ body {
         transparent 70%
     );
 }
+
+/* QUOTE */
+.writer-quote {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    font-style: italic;
+}
 </style>
 </head>
 
@@ -192,9 +244,15 @@ body {
         <div class="nav-buttons">
             <a href="worlds.html">WORLDS</a>
             <a href="characters-seven-swords.html">CHARACTERS</a>
-            <a href="maps.html">BOOKS</a>
         </div>
     </div>
+</div>
+
+<!-- MAGIC DIVIDER -->
+<div class="magic-divider">
+    <div class="swirl swirl-gold"></div>
+    <div class="swirl swirl-silver"></div>
+    <div class="dust"></div>
 </div>
 
 <!-- SECOND SECTION -->
@@ -207,19 +265,38 @@ body {
     </div>
 
     <div class="doors-container">
-        <a href="blog.html" class="door door-left">
-            <span>BLOG</span>
-        </a>
+        <a href="blog.html" class="door door-left"><span>BLOG</span></a>
+        <a href="about.html" class="door door-center"><span>ABOUT THE AUTHOR</span></a>
+        <a href="lost-stories.html" class="door door-right"><span>LOST STORIES</span></a>
+    </div>
 
-        <a href="about.html" class="door door-center">
-            <span>ABOUT THE AUTHOR</span>
-        </a>
-
-        <a href="lost-stories.html" class="door door-right">
-            <span>LOST STORIES</span>
-        </a>
+    <div class="writer-quote">
+        Stories are not found. They are uncovered.
     </div>
 </div>
+
+<!-- SCROLL ANIMATION -->
+<script>
+const divider = document.querySelector('.magic-divider');
+const gold = document.querySelector('.swirl-gold');
+const silver = document.querySelector('.swirl-silver');
+const dust = document.querySelector('.dust');
+
+window.addEventListener('scroll', () => {
+    const rect = divider.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    let visible = 1 - Math.abs(rect.top / windowHeight);
+    visible = Math.max(0, Math.min(1, visible));
+
+    const rotate = visible * 180;
+    const scale = 1 + (visible * 0.3);
+
+    gold.style.transform = `rotate(${rotate}deg) scale(${scale})`;
+    silver.style.transform = `rotate(${-rotate * 0.8}deg) scale(${scale + 0.1})`;
+    dust.style.transform = `translateY(${-visible * 30}px)`;
+});
+</script>
 
 </body>
 </html>
