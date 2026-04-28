@@ -8,84 +8,174 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        font-family: "EB Garamond", serif;
-        color: #f3e7d3;
-        background: #0b0a08;
-    }
+body {
+    font-family: "EB Garamond", serif;
+    color: #f3e7d3;
+    background: #0b0a08;
+}
 
-    /* HERO */
-    .hero {
-        height: 100vh;
-        background: url("library.jpg.png") center/cover no-repeat;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-        padding: 20px;
-    }
+/* HERO (TOP) */
+.hero {
+    height: 100vh;
+    background: url("library.jpg.png") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+}
 
-    .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0,0,0,0.24);
-        backdrop-filter: blur(2px);
-    }
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.24);
+    backdrop-filter: blur(2px);
+}
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
-    }
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
 
-    .small-title {
-        font-family: "Cinzel", serif;
-        letter-spacing: 6px;
-        font-size: 22px;
-        opacity: 0.9;
-    }
+.small-title {
+    font-family: "Cinzel", serif;
+    letter-spacing: 6px;
+    font-size: 22px;
+}
 
-    .main-title {
-        font-family: "Cinzel Decorative", serif;
-        font-size: 72px;
-        letter-spacing: 8px;
-        margin-top: 10px;
-        color: #f5d38a;
-        text-shadow: 0 0 20px rgba(255, 210, 120, 0.3);
-    }
+.main-title {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 72px;
+    letter-spacing: 8px;
+    margin-top: 10px;
+    color: #f5d38a;
+    text-shadow: 0 0 20px rgba(255, 210, 120, 0.3);
+}
 
-    /* BUTTONS */
-    .nav-buttons {
-        margin-top: 40px;
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+/* BUTTONS */
+.nav-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    .nav-buttons a {
-        text-decoration: none;
-        padding: 14px 28px;
-        border: 1px solid #d4b46a;
-        color: #f5e6c8;
-        font-family: "Cinzel", serif;
-        letter-spacing: 2px;
-        transition: 0.3s ease;
-        background: rgba(0,0,0,0.4);
-    }
+.nav-buttons a {
+    text-decoration: none;
+    padding: 14px 28px;
+    border: 1px solid #d4b46a;
+    color: #f5e6c8;
+    font-family: "Cinzel", serif;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    background: rgba(0,0,0,0.4);
+}
 
-    .nav-buttons a:hover {
-        background: #d4b46a;
-        color: #1a1207;
-        transform: translateY(-2px);
-    }
+.nav-buttons a:hover {
+    background: #d4b46a;
+    color: #1a1207;
+    transform: translateY(-2px);
+}
+
+/* SECOND SECTION */
+.second-section {
+    position: relative;
+    min-height: 110vh;
+    background: url("doors.jpg.png") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* OVERLAY */
+.second-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10,8,6,0.8) 0%,
+        rgba(10,8,6,0.4) 40%,
+        rgba(10,8,6,0.7) 100%
+    );
+}
+
+/* TEXT */
+.second-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-intro {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 52px;
+    letter-spacing: 6px;
+    color: #f5d38a;
+}
+
+.section-sub {
+    margin-top: 10px;
+    font-size: 20px;
+    opacity: 0.85;
+}
+
+/* DOORS */
+.doors-container {
+    position: relative;
+    z-index: 2;
+    height: 70vh;
+}
+
+.door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.door-left { left: 0; }
+.door-center { left: 33.33%; }
+.door-right { left: 66.66%; }
+
+.door span {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #f5d38a;
+    text-shadow:
+        0 0 10px rgba(255, 210, 120, 0.4),
+        0 0 25px rgba(255, 210, 120, 0.2);
+    transition: all 0.3s ease;
+}
+
+.door:hover span {
+    transform: scale(1.12);
+    text-shadow:
+        0 0 15px rgba(255, 210, 120, 0.8),
+        0 0 40px rgba(255, 210, 120, 0.6);
+}
+
+.door:hover {
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 210, 120, 0.08),
+        transparent 70%
+    );
+}
 </style>
 </head>
 
@@ -100,13 +190,34 @@
         <div class="main-title">CROWNED BOOKS</div>
 
         <div class="nav-buttons">
-
-            <!-- REAL PAGE LINKS (NOT #ANCHORS) -->
-            <a href="maps.html">MAPS</a>
             <a href="worlds.html">WORLDS</a>
             <a href="characters-seven-swords.html">CHARACTERS</a>
-
+            <a href="maps.html">BOOKS</a>
         </div>
+    </div>
+</div>
+
+<!-- SECOND SECTION -->
+<div class="second-section">
+    <div class="second-overlay"></div>
+
+    <div class="second-content">
+        <div class="section-intro">Choose Your Path</div>
+        <div class="section-sub">Not every story is meant to be found easily.</div>
+    </div>
+
+    <div class="doors-container">
+        <a href="blog.html" class="door door-left">
+            <span>BLOG</span>
+        </a>
+
+        <a href="about.html" class="door door-center">
+            <span>ABOUT THE AUTHOR</span>
+        </a>
+
+        <a href="lost-stories.html" class="door door-right">
+            <span>LOST STORIES</span>
+        </a>
     </div>
 </div>
 
