@@ -23,9 +23,8 @@
         overflow-x: hidden;
     }
 
-    /* Dark overlay so text actually exists visually */
     .overlay {
-        min-height: 200vh; /* forces scroll */
+        min-height: 200vh;
         background: rgba(0, 0, 0, 0.55);
         display: flex;
         flex-direction: column;
@@ -46,7 +45,7 @@
         justify-content: center;
         gap: 25px;
         max-width: 900px;
-        margin-bottom: 120px;
+        margin-bottom: 80px;
     }
 
     .series-btn {
@@ -74,7 +73,21 @@
         border-color: white;
     }
 
-    /* Sneak Peek button at bottom */
+    /* QUOTE */
+    .quote {
+        max-width: 900px;
+        margin: 60px 20px 100px 20px;
+        text-align: center;
+        font-size: 38px;
+        line-height: 1.4;
+
+        /* Fancy script feel */
+        font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
+
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 0 12px rgba(255,255,255,0.25);
+    }
+
     .sneak-peek-wrapper {
         margin-top: auto;
         padding-bottom: 80px;
@@ -109,16 +122,19 @@
     <!-- SERIES BUTTONS -->
     <div class="series-container">
 
-        <!-- Replace # with your actual pages later -->
-        <a class="series-btn" href="#">Seven Swords Series</a>
-        <a class="series-btn" href="#">Series Two</a>
-        <a class="series-btn" href="#">Series Three</a>
-        <a class="series-btn" href="#">Series Four</a>
+        <a class="series-btn" href="#">The Seven Series</a>
+        <a class="series-btn" href="#">The Never Fails Series</a>
+        <a class="series-btn" href="#">Medieval Story</a>
+        <a class="series-btn" href="#">The Kearin County Series</a>
 
-        <!-- Add more as needed -->
     </div>
 
-    <!-- SNEAK PEEK BUTTON -->
+    <!-- QUOTE -->
+    <div class="quote">
+        "Be ready, and be prepared, for I have called you to aid the realm of Arian in its time of greatest need."
+    </div>
+
+    <!-- SNEAK PEEK -->
     <div class="sneak-peek-wrapper">
         <a class="sneak-peek-btn" href="sneak-peek.html">Sneak Peek</a>
     </div>
