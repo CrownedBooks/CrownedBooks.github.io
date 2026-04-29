@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Books</title>
 
-<!-- Cinzel Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -23,23 +22,6 @@
         overflow-x: hidden;
     }
 
-   <nav style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #111;
-  padding: 10px;
-  z-index: 9999;
-">
-  <a href="index.html" style="color: gold; margin-right: 20px; text-decoration: none;">
-    Home
-  </a>
-
-  <a href="characters.html" style="color: gold; margin-right: 20px; text-decoration: none;">
-    Characters
-  </a>
-</nav>
     .overlay {
         min-height: 200vh;
         background: rgba(0, 0, 0, 0.55);
@@ -62,7 +44,7 @@
         justify-content: center;
         gap: 25px;
         max-width: 900px;
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
 
     .series-btn {
@@ -90,19 +72,44 @@
         border-color: white;
     }
 
-    /* QUOTE */
+    /* PROPHECY QUOTE */
     .quote {
         max-width: 900px;
-        margin: 60px 20px 100px 20px;
+        margin: 70px 20px 110px 20px;
         text-align: center;
-        font-size: 38px;
-        line-height: 1.4;
+        font-size: 42px;
+        line-height: 1.5;
 
-        /* Fancy script feel */
         font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
 
         color: rgba(255, 255, 255, 0.95);
-        text-shadow: 0 0 12px rgba(255,255,255,0.25);
+
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.35),
+            0 0 25px rgba(180, 150, 255, 0.15);
+
+        animation: floatGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes floatGlow {
+        0% {
+            transform: translateY(0px);
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.25),
+                0 0 20px rgba(180,150,255,0.1);
+        }
+        50% {
+            transform: translateY(-8px);
+            text-shadow:
+                0 0 18px rgba(255,255,255,0.45),
+                0 0 35px rgba(180,150,255,0.25);
+        }
+        100% {
+            transform: translateY(0px);
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.25),
+                0 0 20px rgba(180,150,255,0.1);
+        }
     }
 
     .sneak-peek-wrapper {
@@ -136,22 +143,17 @@
 
     <h1>Books</h1>
 
-    <!-- SERIES BUTTONS -->
     <div class="series-container">
-
         <a class="series-btn" href="#">The Seven Series</a>
         <a class="series-btn" href="#">The Never Fails Series</a>
         <a class="series-btn" href="#">Medieval Story</a>
         <a class="series-btn" href="#">The Kearin County Series</a>
-
     </div>
 
-    <!-- QUOTE -->
     <div class="quote">
         "Be ready, and be prepared, for I have called you to aid the realm of Arian in its time of greatest need."
     </div>
 
-    <!-- SNEAK PEEK -->
     <div class="sneak-peek-wrapper">
         <a class="sneak-peek-btn" href="sneak-peek.html">Sneak Peek</a>
     </div>
