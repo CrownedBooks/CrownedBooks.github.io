@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Many Worlds</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    color: white;
+    overflow-x: hidden;
+
+    /* Background image */
+    background: url('world-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* Dark overlay */
+  .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 80px;
+  }
+
+  /* Title styling */
+  .title {
+    font-size: 60px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+  }
+
+  /* Worlds container */
+  .worlds {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  /* Individual world button */
+  .world {
+    text-align: center;
+  }
+
+  .world a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .world img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .world img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px gold;
+  }
+
+  .world-name {
+    margin-top: 15px;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <div class="title">THE MANY WORLDS</div>
+  <div class="subtitle">OF KAILAH'S IMAGINATION</div>
+
+  <div class="worlds">
+
+    <!-- Calvarra -->
+    <div class="world">
+      <a href="calvarra.html">
+        <img src="world-button.jpg" alt="Calvarra">
+        <div class="world-name">Calvarra</div>
+      </a>
+    </div>
+
+    <!-- Arian -->
+    <div class="world">
+      <a href="arian.html">
+        <img src="world-button.jpg" alt="Arian">
+        <div class="world-name">Arian</div>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
