@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Books</title>
+
+<!-- Cinzel Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Cinzel', serif;
+        background: url("books-background.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    /* Dark overlay so text actually exists visually */
+    .overlay {
+        min-height: 200vh; /* forces scroll */
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .series-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        max-width: 900px;
+        margin-bottom: 120px;
+    }
+
+    .series-btn {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        font-family: 'Cinzel', serif;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .series-btn:hover {
+        transform: scale(1.08);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: white;
+    }
+
+    /* Sneak Peek button at bottom */
+    .sneak-peek-wrapper {
+        margin-top: auto;
+        padding-bottom: 80px;
+        text-align: center;
+    }
+
+    .sneak-peek-btn {
+        padding: 18px 40px;
+        font-size: 22px;
+        border-radius: 40px;
+        border: 2px solid white;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-family: 'Cinzel', serif;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+    .sneak-peek-btn:hover {
+        background: white;
+        color: black;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <h1>Books</h1>
+
+    <!-- SERIES BUTTONS -->
+    <div class="series-container">
+
+        <!-- Replace # with your actual pages later -->
+        <a class="series-btn" href="#">Seven Swords Series</a>
+        <a class="series-btn" href="#">Series Two</a>
+        <a class="series-btn" href="#">Series Three</a>
+        <a class="series-btn" href="#">Series Four</a>
+
+        <!-- Add more as needed -->
+    </div>
+
+    <!-- SNEAK PEEK BUTTON -->
+    <div class="sneak-peek-wrapper">
+        <a class="sneak-peek-btn" href="sneak-peek.html">Sneak Peek</a>
+    </div>
+
+</div>
+
+</body>
+</html>
